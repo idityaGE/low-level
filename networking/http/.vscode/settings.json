@@ -1,0 +1,7 @@
+{
+    "files.associations": {
+        "Dockerfile": "dockerfile",
+        "semaphore.h": "c",
+        "socket.h": "c"
+    }
+}

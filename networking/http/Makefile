@@ -12,7 +12,7 @@ all: $(TARGET) # `make` == `make all`
 %: %.c
 	$(CC) $(CFLAGS) $< -o $@
 
-run-server: server # this depend on server so it will call `make server` which will be cought by above pattern and it will run 
+run-server: server # this depend on server so it will run `make server` which will be caught by above pattern and it will run 
 	./server
 
 run-client: client

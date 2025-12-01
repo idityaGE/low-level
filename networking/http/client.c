@@ -24,7 +24,6 @@ int main() {
     perror("socket creation error");
     exit(EXIT_FAILURE);
   }
-  printf("Client socket created.\n");
 
   // Prepare the sockaddr_in structure for the server
   server_addr.sin_family = AF_INET;
