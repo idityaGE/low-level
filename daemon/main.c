@@ -32,7 +32,7 @@ int main(int argc, char *argv[]) {
 
   chdir("/");
   
-  FILE *pidfile = fopen("/var/run/mydaemon.pid", "w");
+  FILE *pidfile = fopen("/var/run/mydaemon.pid", "w"); // need sudo permission
   if (pidfile) {
       fprintf(pidfile, "%d\n", getpid()); // write my daemon PID
       fclose(pidfile);
@@ -45,7 +45,7 @@ int main(int argc, char *argv[]) {
   close(STDOUT_FILENO);  // 1
   close(STDERR_FILENO);  // 2
 
-  while(true) {
+  while(1) {
     int fd = open("/tmp/mydaemon.log", O_WRONLY | O_CREAT | O_APPEND, 0644);
     
     if (fd != -1) {
