@@ -1,3 +1,6 @@
 [submodule "operating-system"]
 	path = operating-system
 	url = https://github.com/idityaGE/Operating-System---Linux--.git
+[submodule "rust-macros"]
+	path = rust-macros
+	url = git@github.com:idityaGE/rust-macros.git
