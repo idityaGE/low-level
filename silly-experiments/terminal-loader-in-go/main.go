@@ -75,13 +75,13 @@ func loader(ctx context.Context, col, lineNum int) {
 
 		mut.Lock()
 		// Save current cursor position, move to specific line, print, restore position
-		fmt.Printf("\033[s")              // Save cursor position
+		// fmt.Printf("\033[s")              // Save cursor position
 		fmt.Printf("\033[%dB", lineNum-1) // Move down to target line
 		fmt.Printf("\r\033[K")            // Move to start and clear line
 		if i == col {
-			fmt.Printf("Loader %d: [%s] ✓ %dms", lineNum, strings.Repeat("=", col+1), random)
+			fmt.Printf("Loader %2d: [%s] %3dms | %3d%% ✓", lineNum, strings.Repeat("=", col+1), random, (i*100)/col)
 		} else {
-			fmt.Printf("Loader %d: [%s>%s] %dms", lineNum, strings.Repeat("=", i), strings.Repeat(" ", col-i), random)
+			fmt.Printf("Loader %2d: [%s>%s] %3dms | %3d%%", lineNum, strings.Repeat("=", i), strings.Repeat(" ", col-i), random, (i*100)/col)
 		}
 		fmt.Printf("\033[u") // Restore cursor position
 		mut.Unlock()
